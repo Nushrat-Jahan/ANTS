@@ -1,0 +1,72 @@
+﻿@model ANTS.Models.Notice
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "CreateNotice";
+}
+
+<h2>Create Notice</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Notice</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <input type="hidden" name="userid" value=@Model.userid />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usertype, "User Type", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="usertype" class="form-control">
+                <option selected disabled>--SELECT--</option>
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="Seller">Seller</option>
+                <option value="Customer">Customer</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.usertype, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.notice1, "Notice", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <textarea name="notice1" class="form-control"></textarea>
+            @Html.ValidationMessageFor(model => model.notice1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <input type="hidden" name="createdat" value=@Model.createdat />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="status" class="form-control">
+                <option selected disabled>--SELECT--</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewNotices")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

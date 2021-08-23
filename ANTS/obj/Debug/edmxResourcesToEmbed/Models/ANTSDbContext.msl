@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ANTSModelStoreContainer" CdmEntityContainer="ANTSEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="ANTSModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="transferdetails" ColumnName="transferdetails" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="ANTSModel.Action">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="actionid" ColumnName="actionid" />
+          <ScalarProperty Name="actionanme" ColumnName="actionanme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auditlogs">
+      <EntityTypeMapping TypeName="ANTSModel.Auditlog">
+        <MappingFragment StoreEntitySet="Auditlogs">
+          <ScalarProperty Name="auditlogid" ColumnName="auditlogid" />
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="actiontypeid" ColumnName="actiontypeid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="ANTSModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="blogid" ColumnName="blogid" />
+          <ScalarProperty Name="blog1" ColumnName="blog" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="ANTSModel.Notice">
+        <MappingFragment StoreEntitySet="Notices">
+          <ScalarProperty Name="noticeid" ColumnName="noticeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+          <ScalarProperty Name="notice1" ColumnName="notice" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ANTSModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="sellerid" ColumnName="sellerid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerphone" ColumnName="customerphone" />
+          <ScalarProperty Name="customeraddress" ColumnName="customeraddress" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+          <ScalarProperty Name="ordername" ColumnName="ordername" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="ANTSModel.Package">
+        <MappingFragment StoreEntitySet="Packages">
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="packagename" ColumnName="packagename" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="advertisement" ColumnName="advertisement" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="approvestatus" ColumnName="approvestatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="ANTSModel.Rating">
+        <MappingFragment StoreEntitySet="Ratings">
+          <ScalarProperty Name="ratingid" ColumnName="ratingid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+          <ScalarProperty Name="rating1" ColumnName="rating" />
+          <ScalarProperty Name="complain" ColumnName="complain" />
+          <ScalarProperty Name="complainstatus" ColumnName="complainstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ANTSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ANTSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="ANTSModel.Voucher">
+        <MappingFragment StoreEntitySet="Voucher">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="voucher1" ColumnName="voucher" />
+          <ScalarProperty Name="voucherid" ColumnName="voucherid" />
+          <ScalarProperty Name="voucherstatus" ColumnName="voucherstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voucherentries">
+      <EntityTypeMapping TypeName="ANTSModel.Voucherentry">
+        <MappingFragment StoreEntitySet="Voucherentry">
+          <ScalarProperty Name="voucherentryid" ColumnName="voucherentryid" />
+          <ScalarProperty Name="voucherid" ColumnName="voucherid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ANTSModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ANTSModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ANTSModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ANTSModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ANTSModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ANTSModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ANTSModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ANTSModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ANTSModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

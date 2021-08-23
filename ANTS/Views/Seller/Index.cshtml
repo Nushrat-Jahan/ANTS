@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/SellerLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h2>User id : @Session["id"]</h2>
+<a href="/Seller/Create" class="btn btn-primary">Create Packages</a>
+<a href="/Seller/Show" class="btn btn-success">Show packages</a>
+<a href="/Seller/ShowOrders" class="btn btn-warning">Show Orders</a>
+<a href="/Seller/Dashboard" class="btn btn-danger">Dashboard</a>
+@Html.ActionLink("EditProfile", "EditProfile", new { id = Session["id"] })
+<a href="/Seller/ShowNotice" class="btn btn-primary">Show Notices</a>
+
+
+

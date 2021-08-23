@@ -1,0 +1,112 @@
+﻿@model ANTS.Models.Order
+
+@{
+    ViewBag.Title = "CancelOrder";
+}
+
+<h2>Cancel Order</h2>
+
+<h3>Are you sure you want to Cancel this?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sellerid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sellerid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customeraddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customeraddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.packageid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packageid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paytype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paytype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalprice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancel Confirm" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

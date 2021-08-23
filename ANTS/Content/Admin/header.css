@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.header-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-box {
+/*    justify-content: flex-end;*/
+}
+
+.create-button {
+    height: 50%;
+    position: relative;
+    top: 34px;
+}
+
+.create {
+    margin-bottom: 10px;
+}

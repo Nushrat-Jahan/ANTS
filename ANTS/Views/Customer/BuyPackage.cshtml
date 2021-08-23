@@ -1,0 +1,121 @@
+﻿@model ANTS.Models.Package
+
+@{
+    ViewBag.Title = "BuyPackage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>BuyPackage</h2>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div>
+    <h4>Package</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Seller Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+        <dt>
+            Package Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packagename)
+        </dd>
+
+        <dt>
+            Package Price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            Package Details
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+        <dt>
+            Category
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            Discount
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            Package Updated at
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+    </dl>
+</div>
+<form action="/Customer/BuyPackage" method="post">
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Phone</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="phone" value="" placeholder="Phone" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Address</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="address" value="" placeholder="Address" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Pay type</label>
+        <div class="col-md-10">
+            <select name="paytype" class="form-control">
+                <option selected disabled>--SELECT--</option>
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Quantity</label>
+        <div class="col-md-10">
+            <input class="form-control" type="number" min="1" name="quantity" value="" placeholder="Quantity" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input class="form-control" type="submit" name="placeorder" value="Place Order" />
+        </div>
+    </div>
+    <input type="hidden" name="packageid" value="@Model.packageid" />
+</form>
+<span>@TempData["ErrorMessage"]</span>

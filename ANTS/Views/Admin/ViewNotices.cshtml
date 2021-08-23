@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "ViewNotices";
+}
+
+<h2>View Notices</h2>
+
+<link href="~/Content/Admin/header.css" rel="stylesheet" />
+
+<div class="header-container">
+    <a href="/Admin/CreateNotice" class="btn btn-primary text-light create-button">Create New</a>
+
+    <form action="/Admin/ViewUsers" method="post" class="search-box">
+        <input class="form-control" type="text" name="searchtext" value="" placeholder="Search Users via Name" />
+        <input class="form-control btn btn-primary" type="submit" value="Search" />
+    </form>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            User Type
+        </th>
+        <th>
+            Notice
+        </th>
+        <th>
+            Created At
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.GetType().GetProperty("name").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("usertype").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("notice").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("createdat").GetValue(item)
+            </td>
+            <td>
+                <b>
+                    @item.GetType().GetProperty("status").GetValue(item)
+                </b>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditNotice", new { id = @item.GetType().GetProperty("noticeid").GetValue(item) }) |
+                @Html.ActionLink("Delete", "DeleteNotice", new { id = @item.GetType().GetProperty("noticeid").GetValue(item) })
+            </td>
+        </tr>
+    }
+
+</table>

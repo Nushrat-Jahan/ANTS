@@ -1,0 +1,49 @@
+﻿@model ANTS.Models.Voucher
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "DeleteVoucher";
+}
+
+<h2>Delete Voucher</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Voucher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Voucher Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.voucherstatus)
+        </dd>
+
+        <dt>
+            Voucher
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.voucher1)
+        </dd>
+
+        <dt>
+            User ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewVouchers")
+        </div>
+    }
+</div>

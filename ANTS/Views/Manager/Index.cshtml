@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<a href="/Manager/CreateSeller" class="btn btn-primary">Create Seller</a>
+<a href="/Manager/ViewUsers" class="btn btn-success">View Sellers</a>
+<a href="/Manager/ViewPackages" class="btn btn-warning">Approving Packages</a>
+@Html.ActionLink("Edit Profile", "EditProfile",  new { id = Session["id"] }, new { @class = "btn btn-danger btn-large" })

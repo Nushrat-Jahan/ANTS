@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ANTS.Models.User>
+@Styles.Render("~/Content")
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "View Users";
+}
+
+
+<link href="~/Content/Admin/header.css" rel="stylesheet" />
+
+
+<h2>View Users</h2>
+<div class="header-container">
+    <a href="/Admin/CreateManager" class="btn btn-primary text-light create-button">Create New Manager</a>
+
+    <form action="/Admin/ViewUsers" method="post" class="search-box">
+        <input class="form-control" type="text" name="searchtext" value="" placeholder="Search Users via Name" />
+        <input class="form-control btn btn-primary" type="submit" value="Search" />
+    </form>
+</div>
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            User Type
+        </th>
+        <th>
+            Created At
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Phone
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                <b>
+                    @Html.DisplayFor(modelItem => item.status)
+                </b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usertype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { id = item.userid }) |
+                @Html.ActionLink("Delete", "DeleteUser", new { id = item.userid })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

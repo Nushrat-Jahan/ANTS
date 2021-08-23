@@ -1,0 +1,65 @@
+﻿@model ANTS.Models.Rating
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "DeleteComplain";
+}
+
+<h2>Delete Complain</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rating</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            User Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+        <dt>
+            Package Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packageid)
+        </dd>
+
+        <dt>
+            Rating
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rating1)
+        </dd>
+
+        <dt>
+            Complain
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complain)
+        </dd>
+
+        <dt>
+            Complain Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complainstatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewComplains")
+        </div>
+    }
+</div>

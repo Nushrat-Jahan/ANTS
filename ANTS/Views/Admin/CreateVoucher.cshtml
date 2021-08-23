@@ -1,0 +1,49 @@
+﻿@model ANTS.Models.Voucher
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "CreateVoucher";
+}
+
+<h2>Create Voucher</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Voucher</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.voucherstatus, "Voucher Status",htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="voucherstatus" class="form-control">
+                    <option selected value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.voucherstatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.voucher1, "Voucher", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.voucher1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voucher1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <input type="hidden" name="userid" value="@Convert.ToInt32(Session["id"])" />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewVouchers")
+</div>

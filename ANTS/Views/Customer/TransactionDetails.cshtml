@@ -1,0 +1,82 @@
+﻿@model ANTS.Models.Account
+
+@{
+    ViewBag.Title = "TransactionDetails";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>TransactionDetails</h2>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            User's Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.name)
+        </dd>
+        <dt>
+            Balance
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balance)
+        </dd>
+
+        <dt>
+            Debit
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.debit)
+        </dd>
+
+        <dt>
+            Credit
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.credit)
+        </dd>
+
+        <dt>
+            Pay type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paytype)
+        </dd>
+
+        <dt>
+            Transfer details
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transferdetails)
+        </dd>
+
+        <dt>
+            Account status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+           Updated at
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to transaction", "Transactions")
+</p>

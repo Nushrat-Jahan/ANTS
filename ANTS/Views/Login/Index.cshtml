@@ -1,0 +1,17 @@
+﻿@model ANTS.Models.User
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LOGIN</h2>
+
+<form action="/Login/Index" method="post">
+    <input class="form-control" type="text" name="email" value="" placeholder="Email" />
+    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+    <input class="form-control" type="password" name="password" value="" placeholder="password" />
+    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+    <input class="form-control" type="submit" name="login" value="Login" />
+</form>
+<h4><a href="/Registration/Create">Not Registered Yet?</a></h4>
+<span>@TempData["ErrorMessage"]</span>

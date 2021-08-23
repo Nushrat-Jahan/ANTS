@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ANTS.Models.Package>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+<h2>Welcome </h2>
+
+
+<form action="/Customer/Index" method="post">
+    <input class="form-control" type="text" name="searching" value="" placeholder="Type package name" />
+    <input class="form-control" type="submit" name="Searching" value="Search" />
+</form>
+<form action="/Customer/Index" method="get">
+    <input class="form-control" type="submit" name="Showall" value="Show All" />
+</form>
+<br /><br />
+
+<table class="table">
+    <tr>
+        <th>
+            Package Name
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Details
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Discount
+        </th>
+
+        <th>
+            Location
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.packagename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "PackageDetails", new { id = item.packageid })
+            </td>
+        </tr>
+    }
+
+</table>

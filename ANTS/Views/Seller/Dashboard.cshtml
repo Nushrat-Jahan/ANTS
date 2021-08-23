@@ -1,0 +1,19 @@
+﻿@model ANTS.Models.Order
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/SellerLayout.cshtml";
+}
+
+@Html.ActionLink("Back to List", "Index")
+
+<h2>Dashboard</h2>
+<h2>Total money earned</h2>
+<h2>@ViewData["price"]</h2>
+
+<h2>Total money earned in this month</h2>
+<h2>@ViewData["monthprice"]</h2>
+
+<h2>Number of orders pending</h2>
+<h2>@ViewData["orderpending"]</h2>
+

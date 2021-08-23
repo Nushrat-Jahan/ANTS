@@ -1,0 +1,68 @@
+﻿@*@model IEnumerable<ANTS.Models.Rating>*@
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "ViewComplains";
+}
+
+<h2>View Complains</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            User Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Package Id
+        </th>
+        <th>
+            Package Name
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            Complain
+        <th>
+            Complain Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.GetType().GetProperty("userid").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("name").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("packageid").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("packagename").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("rating").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("complain").GetValue(item)
+            </td>
+            <td>
+                <b>
+                    @item.GetType().GetProperty("complainstatus").GetValue(item)
+                </b>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditComplain", new { id = item.GetType().GetProperty("ratingid").GetValue(item) }) |
+                @Html.ActionLink("Delete", "DeleteComplain", new { id = item.GetType().GetProperty("ratingid").GetValue(item) })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "ViewAuditLogs";
+}
+
+<h2>View AuditLogs</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Admin Id
+        </th>
+        <th>
+            Admin Name
+        </th>
+        <th>
+            Action Type Id
+        </th>
+        <th>
+            Action Name
+        </th>
+        <th>
+            User Id
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            Created At
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.GetType().GetProperty("adminId").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("adminName").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("actiontypeid").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("actionname").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("userid").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("username").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("createdat").GetValue(item)
+            </td>
+        </tr>
+    }
+
+</table>

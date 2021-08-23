@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ANTS.Models.Notice>
+
+@{
+    ViewBag.Title = "Notices";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Notices</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Notice
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Uploaded by
+        </th>
+        <th>
+            Uploaded at
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.notice1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.createdat)
+    </td>
+
+</tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to Dashboard", "Index")
+</div>

@@ -1,0 +1,113 @@
+﻿@model ANTS.Models.Order
+
+@{
+    ViewBag.Title = "Orderdetails";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+<h2>Orderdetails</h2>
+<p>
+    @Html.ActionLink("Back to List", "Orderhistory")
+</p>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal" >
+        <dt>
+            Seller Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sellerid)
+        </dd>
+
+        <dt>
+            Customer Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerid)
+        </dd>
+
+        <dt>
+            Customer Phone no
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerphone)
+        </dd>
+
+        <dt>
+            Customer Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customeraddress)
+        </dd>
+
+        <dt>
+            Package Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packageid)
+        </dd>
+
+        <dt>
+            Order name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordername)
+        </dd>
+
+        <dt>
+            Paytype
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paytype)
+        </dd>
+
+        <dt>
+            Quantity
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            Total price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalprice)
+        </dd>
+
+        <dt>
+            Order placed at
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+        <dt>
+            Order status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+    </dl>
+    <br />
+    <p>
+
+        <button class="btn-close-white">
+            @Html.ActionLink("Cancel Order", "CancelOrder", new { id = Model.orderid })
+        </button>
+    </p>
+</div>
+

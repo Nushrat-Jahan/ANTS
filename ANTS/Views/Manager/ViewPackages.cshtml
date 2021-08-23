@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ANTS.Models.Package>
+
+@{
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    ViewBag.Title = "ViewPackages";
+}
+
+<h2>Approving Packages</h2>
+
+<p>
+    @Html.ActionLink("Back to Index", "/Index")
+</p>
+
+<h2>Show Packages</h2>
+<form action="ViewSearchPackages" method="post">
+    <input class="form-control" type="text" name="searching" value="" placeholder="Type package name" />
+    <input class="form-control" type="submit" class="btn btn-warning" name="Searching" value="Search" />
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.packagename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount)
+        </th>
+        @*@<th>
+            @Html.DisplayNameFor(model => model.voucherid)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.createdat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertisement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvestatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.userid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.packagename)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.details)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.discount)
+    </td>
+    @*@<td>
+        @Html.DisplayFor(modelItem => item.voucherid)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.createdat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.advertisement)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.approvestatus)
+    </td>
+    
+    <td>
+        <form method="post" enctype="multipart/form-data" href="/ViewPackages">
+            <input type="text" id="id" name="id" value="@Html.DisplayFor(modelItem => item.packageid)" readonly>
+            <label for="status">Update Status:</label>
+            <select name="status" id="status">
+                <option value="accepted">Accepted</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+            <input class="form-control" type="submit" class="btn btn-warning" name="Status" value="Update" />
+        </form>
+    </td>
+</tr>
+      
+    }
+
+</table>

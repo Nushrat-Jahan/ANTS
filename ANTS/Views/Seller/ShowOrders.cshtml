@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ANTS.Models.Order>
+
+@{
+    Layout = "~/Views/Shared/SellerLayout.cshtml";
+    ViewBag.Title = "ShowOrders";
+}
+
+<h2>ShowOrders</h2>
+<form action="/Seller/ShowSearchOrders" method="post">
+    <input class="form-control" type="text" name="searching" value="" placeholder="Type order name" />
+    <input class="form-control" type="submit" class="btn btn-warning" name="Searching" value="Search" />
+</form>
+
+
+@Html.ActionLink("Back", "Index")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerphone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customeraddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.packageid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paytype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderid)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customeraddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.packageid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paytype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+            </td>
+            <td>
+                <form method="post" enctype="multipart/form-data" href="/Seller/ShowOrders">
+                    <input type="text" id="id" name="id" value="@Html.DisplayFor(modelItem => item.orderid)" readonly>
+                    <label for="status">Update Status:</label>
+                    <select name="status" id="status">
+                        <option value="accepted">Accepted</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <input class="form-control" type="submit" class="btn btn-warning" name="Status" value="Update" />
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>

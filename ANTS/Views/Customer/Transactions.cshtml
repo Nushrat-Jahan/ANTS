@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ANTS.Models.Account>
+
+@{
+    ViewBag.Title = "Transactions";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Transactions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Balance
+        </th>
+        <th>
+            Debit
+        </th>
+        <th>
+            Credit
+        </th>
+        <th>
+            Paytype
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.balance)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.debit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.credit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.paytype)
+    </td>
+
+    <td>
+        @Html.ActionLink("Details", "TransactionDetails", new { id = item.accountid })
+    </td>
+</tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

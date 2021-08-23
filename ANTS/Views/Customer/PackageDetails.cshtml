@@ -1,0 +1,91 @@
+﻿@model ANTS.Models.Package
+
+@{
+    ViewBag.Title = "PackageDetails";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>PackageDetails</h2>
+<p>
+
+    @Html.ActionLink("Buy package", "BuyPackage", new { id = Model.packageid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div>
+    <h4>Package</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Seller Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+
+        <dt>
+            Package Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packagename)
+        </dd>
+
+        <dt>
+            Package Price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            Package Details
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+        <dt>
+            Category
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            Discount
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            Package updated at
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+        <dt>
+            Advertisement
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertisement)
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+    </dl>
+</div>

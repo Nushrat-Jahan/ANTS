@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ANTS.Models.Order>
+
+@{
+    ViewBag.Title = "Orderhistory";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Orderhistory</h2>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<form action="/Customer/Orderhistory" method="post">
+    <input class="form-control" type="text" name="searching" value="" placeholder="Type package name" />
+    <input class="form-control" type="submit"  name="Searching" value="Search" />
+</form>
+<form action="/Customer/Orderhistory" method="get">
+    <input class="form-control" type="submit"  name="Showall" value="Show All" />
+</form>
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Seller Name
+        </th>
+        <th>
+            Customer Name
+        </th>
+        <th>
+            Customer Phone No
+        </th>
+        <th>
+            Customer Address
+        </th>
+        <th>
+            Package Id
+        </th>
+        <th>
+            Order Name
+        </th>
+        <th>
+            Pay Type
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Total Price
+        </th>
+        <th>
+            Order placed at
+        </th>
+        <th>
+            Order status
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User1.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.customerphone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.customeraddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.packageid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ordername)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.paytype)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.totalprice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.createdat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+
+    <td>
+        @Html.ActionLink("Details", "OrderDetails", new { id = item.orderid })
+    </td>
+</tr>
+    }
+
+</table>

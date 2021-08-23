@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "ViewVouchers";
+}
+
+<h2>ViewVouchers</h2>
+
+<link href="~/Content/Admin/header.css" rel="stylesheet" />
+
+<div class="header-container">
+    <a href="/Admin/CreateVoucher" class="btn btn-primary text-light create-button">Create New</a>
+
+    <form action="/Admin/ViewVouchers" method="post" class="search-box">
+        <input class="form-control" type="text" name="searchtext" value="" placeholder="Search vouchers via name" />
+        <input class="form-control btn btn-primary" type="submit" value="Search" />
+    </form>
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>
+            Voucher Status
+        </th>
+        <th>
+            Voucher
+        </th>
+        <th>
+            Creator ID
+        </th>
+        <th>
+            Created By
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <b>
+                    @item.GetType().GetProperty("voucherStatus").GetValue(item)
+                </b>
+            </td>
+            <td>
+                @item.GetType().GetProperty("voucher").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("userId").GetValue(item)
+            </td>
+            <td>
+                @item.GetType().GetProperty("name").GetValue(item)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditVoucher", new { id = @item.GetType().GetProperty("voucherId").GetValue(item) }) |
+                @Html.ActionLink("Delete", "DeleteVoucher", new { id = @item.GetType().GetProperty("voucherId").GetValue(item) })
+            </td>
+        </tr>
+    }
+
+</table>

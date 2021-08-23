@@ -1,0 +1,75 @@
+﻿@model ANTS.Models.User
+
+@{
+    ViewBag.Title = "CustomerProfile";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>CustomerProfile</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            User status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            User type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usertype)
+        </dd>
+
+        <dt>
+            Signed up at
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdat)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditProfile", new { id = Model.userid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

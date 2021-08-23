@@ -1,0 +1,126 @@
+﻿@model ANTS.Models.Notice
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "EditNotice";
+}
+
+<h2>Edit Notice</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Notice</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.noticeid)
+
+    <input type="hidden" name="userid" value=@Model.userid />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usertype, "User Type", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="usertype" class="form-control">
+                @if (Model.usertype == "Admin")
+                {
+                    <option disabled>--SELECT--</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Seller">Seller</option>
+                    <option value="Manager">Manager</option>
+                    <option selected value="Admin">Admin</option>
+                }
+                else if (Model.usertype == "Manager")
+                {
+                    <option disabled>--SELECT--</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Seller">Service Provider</option>
+                    <option selected value="Manager">Manager</option>
+                    <option value="Admin">Admin</option>
+                }
+                else if (Model.usertype == "Customer")
+                {
+                    <option disabled>--SELECT--</option>
+                    <option value="Customer">Customer</option>
+                    <option selected value="Seller">Seller</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Admin">Admin</option>
+                }
+                else if (Model.usertype == "Seller")
+                {
+                    <option disabled>--SELECT--</option>
+                    <option value="Customer">Customer</option>
+                    <option selected value="Seller">Seller</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Admin">Admin</option>
+                }
+                else
+                {
+                    <option selected disabled>--SELECT--</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Seller">Seller</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Admin">Admin</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.usertype, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.notice1, "Notice", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.notice1, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.notice1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <input type="hidden" name="createdat" value=@Model.createdat />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @if (Model.status == "Active")
+            {
+                <select name="status" class="form-control">
+                    <option disabled>--SELECT--</option>
+                    <option selected value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            }
+            else if (Model.status == "Inactive")
+            {
+                <select name="status" class="form-control">
+                    <option disabled>--SELECT--</option>
+                    <option value="Active">Active</option>
+                    <option selected value="Inactive">Inactive</option>
+                </select>
+            }
+            else
+            {
+                <select name="status" class="form-control">
+                    <option selected disabled>--SELECT--</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewNotices")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
